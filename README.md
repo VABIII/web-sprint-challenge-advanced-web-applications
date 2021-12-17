@@ -121,11 +121,21 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain what a token is used for.
 
+   After the user properly authenticates (properly logs in), the server returns the token. Your application needs to save the returned token (the permissions) to localStorage, so that the above axiosWithAuth module can grab it for other calls that require the Authorization header.”
+
+
 2. What steps can you take in your web apps to keep your data secure?
+
+   You can use tokens in your web apps to keep your data secure.
 
 3. Describe how web servers work.
 
+    Computers connect to the internet by the (WWW), locates an individual server through a domain name and URL,
+    and it retrieves information from the server.
+
+
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 
+    GET, POST, PUT, DELETE
 
 Ok, got it. Thanks!
