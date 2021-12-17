@@ -10,13 +10,18 @@ const testArticle = {
     author: "Test Author",
     summary: "Test Summary",
     body: "Test Body"
+}
 
+const autoAPTest = {
+    headline: "",
+    author: null,
+    summary: "",
+    body: ""
 }
 
 
-
 test('renders component without errors', ()=> {
-
+    render(<Article article={testArticle}/>)
 });
 
 test('renders headline, author from the article when passed in through props', ()=> {
@@ -31,11 +36,16 @@ test('renders headline, author from the article when passed in through props', (
     expect(body).toBeInTheDocument();
 });
 
-// test('renders "Associated Press" when no author is given', ()=> {
-// });
+test('renders "Associated Press" when no author is given', ()=> {
+    render(<Article article={autoAPTest}/>);
+    const autoAuthor = screen.queryByText(/associated press/i);
+    expect(autoAuthor).toBeInTheDocument();
+});
 
-// test('executes handleDelete when the delete button is pressed', ()=> {
-// });
-
-//Task List:
-//1. Complete all above tests. Create test article data when needed.
+test('executes handleDelete when the delete button is pressed', ()=> {
+    const handleDelete=jest.fn();
+    render(<Article article={testArticle} handleDelete={handleDelete}/>);
+    const button = screen.getByTestId('deleteButton');
+    userEvent.click(button);
+    expect(handleDelete).toBeCalled();
+});
