@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import axios from "axios";
 import styled from 'styled-components';
+import {useHistory} from "react-router-dom";
+
 
 const ComponentContainer = styled.div`
     height: 70%;
@@ -49,6 +51,8 @@ const errorInitialValues = {
 const Login = () => {
     const [values, setValues] = useState(initialValues);
     const [error, setError] = useState(errorInitialValues);
+    const {push} = useHistory();
+
 
     const login = () => {
         axios.post("http://localhost:5000/api/login", values)
@@ -61,7 +65,8 @@ const Login = () => {
                 localStorage.setItem("token", token);
                 localStorage.setItem("role", role);
                 localStorage.setItem("username", username);
-                window.location.href = "/view";
+                push("/view");
+
             })
             .catch(err => {
                 console.error(err);
