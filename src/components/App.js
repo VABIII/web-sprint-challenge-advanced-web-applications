@@ -1,20 +1,31 @@
 import React from 'react';
 import { Route } from "react-router-dom";
 import styled from 'styled-components';
-
+import View from "./View";
 import Header from './Header';
 import BloomHeader from './BloomHeader';
 import Login from './Login';
+import Logout from "./Logout";
 
 const App = () => {
   return (
     <AppContainer>
       <BloomHeader/>
       <Header/>
+
       <RouteContainer>
+        <Route path="/logout">
+            <Logout/>
+        </Route>
+
+        <Route path="/view">
+            <View/>
+        </Route>
+
         <Route exact path="/">
           <Login/>
-        </Route>          
+        </Route>
+
       </RouteContainer>
     </AppContainer>
   )

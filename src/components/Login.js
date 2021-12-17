@@ -102,7 +102,7 @@ const Login = () => {
                     />
                     <Button>Login</Button>
                 </FormGroup>
-                <p></p>
+                <p>{error}</p>
             </div>
         </ComponentContainer>
     );
