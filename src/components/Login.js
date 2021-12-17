@@ -37,8 +37,8 @@ const Button = styled.button`
     width: 100%;
 `
 const initialValues = {
-    username: "Lambda",
-    password: "School"
+    username: "",
+    password: ""
 }
 
 const errorInitialValues = {
@@ -66,6 +66,7 @@ const Login = () => {
             .catch(err => {
                 console.error(err);
                 setError(err.response.data);
+                setValues(initialValues);
             });
     } ;
 
