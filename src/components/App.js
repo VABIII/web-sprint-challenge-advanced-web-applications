@@ -14,6 +14,7 @@ const App = () => {
       <Header/>
 
       <RouteContainer>
+
         <Route path="/logout">
             <Logout/>
         </Route>

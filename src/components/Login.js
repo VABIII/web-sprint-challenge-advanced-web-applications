@@ -41,11 +41,14 @@ const initialValues = {
     password: "School"
 }
 
+const errorInitialValues = {
+    error: ""
+};
+
 
 const Login = () => {
     const [values, setValues] = useState(initialValues);
-    const [error, setError] = useState("");
-    // console.log(values);
+    const [error, setError] = useState(errorInitialValues);
 
     const login = () => {
         axios.post("http://localhost:5000/api/login", values)
@@ -58,10 +61,12 @@ const Login = () => {
                 localStorage.setItem("token", token);
                 localStorage.setItem("role", role);
                 localStorage.setItem("username", username);
+                window.location.href = "/view";
             })
             .catch(err => {
                 console.error(err);
-            })
+                setError(err.response.data);
+            });
     } ;
 
     const onChange = evt => {
@@ -89,6 +94,7 @@ const Login = () => {
                     <Label>Username:&nbsp;</Label>
                     <Input
                         type="text"
+                        id="username"
                         name="username"
                         value={values.username}
                         onChange={onChange}
@@ -96,13 +102,14 @@ const Login = () => {
                     <Label>Password:&nbsp;</Label>
                     <Input
                         type="text"
+                        id="password"
                         name="password"
                         value={values.password}
                         onChange={onChange}
                     />
                     <Button>Login</Button>
                 </FormGroup>
-                <p>{error}</p>
+                <p id="error" >{error.error}</p>
             </div>
         </ComponentContainer>
     );
