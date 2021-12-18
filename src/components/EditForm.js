@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import axiosWithAuth from "../utils/axiosWithAuth";
 
 
-
 const FormContainer = styled.form`
     padding: 1em;
     width: 400px;
@@ -52,7 +51,6 @@ const EditForm = (props)=> {
             });
     },[]);
 
-
     const handleChange =  evt => {
         setArticle({
             ...article,
@@ -63,13 +61,13 @@ const EditForm = (props)=> {
     const handleSubmit = evt => {
         evt.preventDefault();
         handleEdit(article);
-    }
+    };
 
 
     const handleCancel = evt => {
         evt.preventDefault();
         handleEditCancel();
-    }
+    };
 
     return(
         <FormContainer onSubmit={handleSubmit}>
@@ -94,11 +92,6 @@ const EditForm = (props)=> {
             <Button onClick={handleCancel}>Cancel</Button>
         </FormContainer>
     );
-}
+};
 
 export default EditForm;
-
-//Task List:
-// 1. On mount, make a http request to retrieve the article with the id `editId.`
-// 2. Save result of request to local state.
-

@@ -36,15 +36,12 @@ const ContentContainer = styled.div`
 
 const ArticleContainer = styled.div`
     background: grey;
-`;
-
-
+`
 
 const View = (props) => {
     const [articles, setArticles] = useState([]);
     const [editing, setEditing] = useState(false);
     const [editId, setEditId] = useState();
-    console.log(editing)
 
     useEffect(() => {
         axiosWithAuth()
@@ -56,7 +53,6 @@ const View = (props) => {
                 console.error(err);
             })
     }, []);
-
 
     const handleDelete = (id) => {
         axiosWithAuth()
@@ -109,20 +105,11 @@ const View = (props) => {
                     })
                 }
             </ArticleContainer>
-            
             {
                 editing && <EditForm editId={editId} handleEdit={handleEdit} handleEditCancel={handleEditCancel}/>
             }
         </ContentContainer>
     </ComponentContainer>);
-}
+};
 
 export default View;
-
-//Task List:
-//1. Build and import axiosWithAuth module in the utils.
-//2. When the component mounts, make a http request that adds all articles to state.
-//3. Complete handleDelete method. It should make a request that delete the article with the included id.
-//4. Complete handleEdit method. It should make a request that updates the article that matches the included article param.
-
-

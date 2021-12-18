@@ -18,7 +18,6 @@ const autoAPTest = {
     body: ""
 };
 
-
 test('renders component without errors', ()=> {
     render(<Article article={testArticle}/>)
 });

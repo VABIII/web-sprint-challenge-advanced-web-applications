@@ -1,13 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BloomHeader = () => {
-    return(
-    <HeaderStyle>
-      <div>Sprint Challenge 3.3</div>
-    </HeaderStyle>);
-}
-
 export default BloomHeader;
 
 const HeaderStyle = styled.nav`
@@ -25,3 +18,10 @@ const HeaderStyle = styled.nav`
     width:25px;
   }
 `
+
+const BloomHeader = () => {
+    return(
+    <HeaderStyle>
+      <div>Sprint Challenge 3.3</div>
+    </HeaderStyle>);
+};

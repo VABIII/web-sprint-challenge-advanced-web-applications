@@ -2,21 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Header = () => {
-    return(
-        <HeaderStyle>
-            <p>Blogger Pro</p>
-            <MenuStyle>
-                <li><Link to="/">Login</Link></li>
-                <li><Link to="view">View</Link></li>
-                <li><Link to="logout">Logout</Link></li>
-            </MenuStyle>
-        </HeaderStyle>
-    );
-}
-
-export default Header;
-
 const HeaderStyle = styled.div`
     padding: 1em;
     background-color: #daa1ac;
@@ -42,3 +27,18 @@ const MenuStyle = styled.ul`
         }
     }
 `
+
+const Header = () => {
+    return(
+        <HeaderStyle>
+            <p>Blogger Pro</p>
+            <MenuStyle>
+                <li><Link to="/">Login</Link></li>
+                <li><Link to="view">View</Link></li>
+                <li><Link to="logout">Logout</Link></li>
+            </MenuStyle>
+        </HeaderStyle>
+    );
+}
+
+export default Header;
